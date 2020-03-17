@@ -6,7 +6,7 @@ import java.util.Collections;
 public class Deck {
 	
 	private String[] ColorArray = {"Red","Blue","Yellow","Green"};
-	private String[] WildArray = {"FourWild","ColorWild"};
+	//private String[] WildArray = {"FourWild","ColorWild"};
 	private ArrayList<Cards> deck = new ArrayList<Cards>();
 
 	public Deck() {

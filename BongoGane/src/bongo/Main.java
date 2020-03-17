@@ -2,6 +2,8 @@ package bongo;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -40,6 +42,13 @@ public class Main {
 			x++;
 			z = 0;
 		}
+		int partitionSize = 1000;
+		List<List<Cards>> Deck2 = new LinkedList<List<Cards>>();
+		for (int i = 0; i < Deck.size(); i += partitionSize) {
+		    Deck2.add(Deck.subList(i,
+		            Math.min(i + partitionSize, Deck.size())));
+		}
+		System.out.println(Deck2);
 	}
 	}
 
