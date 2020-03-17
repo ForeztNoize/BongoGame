@@ -4,19 +4,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-
+	
+	private String[] ColorArray = {"Red","Blue","Yellow","Green"};
+	private String[] WildArray = {"FourWild","ColorWild"};
 	private ArrayList<Cards> deck = new ArrayList<Cards>();
 
 	public Deck() {
 		int i = 0;
 		int j = 0;
 		
-		for (int q = 0; q < 9; q++) {
-			j = 0;
+		for (int q = 0; q < 25; q++) {
 			i++;
+			j = 0;
 			for(int w = 0; w < 4; w++) {
+				deck.add(new Cards(i,ColorArray[j],""));
 				j++;
-				deck.add(new Cards(i,j));
 			}
 		}
 		Collections.shuffle(deck);
@@ -26,4 +28,10 @@ public class Deck {
 		return deck;
 	}
 
+	public String[] getColorArray() {
+		return ColorArray;
+	}
+
 }
+
+

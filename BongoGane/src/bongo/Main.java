@@ -25,32 +25,22 @@ public class Main {
 		ArrayList<Cards> Deck = deck.getDeck();
 		int y = 0;
 		int z = 0;
+		int x = 0;
 		for (int i = 0; i < Deck.size(); i++) {
-			int color = Deck.get(z).getColor();
-			int value = Deck.get(z).getValue();
-			String colortransform = null;
-			switch(color) {
-			case 1:
-				colortransform = "Red";
-				break;
-			case 2:
-				colortransform = "Blue";
-				break;
-			case 3:
-				colortransform = "Green";
-				break;
-			case 4:
-				colortransform = "Yellow";
-				break;
-			default:
-				break;
+			String value = Deck.get(x).CardTotalValue();
+			String Colors[] = deck.getColorArray();
+			JLabel Values[] = new JLabel[100];
+			for (int l = 0; l <= 3; l++) {
+				Values[z]  = new JLabel(Colors[z] + value);
+				Values[z].setBounds(30, y, 150, 14);
+				y += 40;
+				panel.add(Values[z]);
+				z++;
 			}
-			JLabel Values[] = new JLabel[36];
-			Values[z]  = new JLabel(colortransform + value);
-			Values[z].setBounds(30, y, 150, 14);
-			y += 40;
-			panel.add(Values[z]);
-			z++;
+			x++;
+			z = 0;
 		}
 	}
-}
+	}
+
+
