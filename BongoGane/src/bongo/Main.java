@@ -1,7 +1,6 @@
 package bongo;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -61,7 +60,7 @@ public class Main {
 		int x2 = 0;
 		for (int i = 0; i < Hand.getPpdeck().size(); i++) {
 			y = 440;
-			Hand AIhands = new Hand(Hand.getPpdeck(), panel, x2, y, i);
+			Hand Playerhands = new Hand(Hand.getPpdeck(), panel, x2, y, i);
 			x2 += 90;
 		}
 	}
