@@ -26,13 +26,6 @@ public class Main {
 	public static ArrayList<Cards> p2deck = new ArrayList<Cards>();
 
 	public static void main(String[] args) {
-		/*try {
-			BufferedImage unopic = ImageIO.read(new File("UnoRedTwo.png"));
-			JLabel picLabel = new JLabel(new ImageIcon(unopic));
-			panel.add(picLabel);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}*/
 		
 		panel.setBounds(0, 5, 571, 33);
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
@@ -44,6 +37,9 @@ public class Main {
 		frame.setVisible(true);
 		lblNewLabel.setBounds(30, 9, 150, 14);
 		panel.add(lblNewLabel);	
+		JButton logodeck = new JButton("Bongo");
+		logodeck.setBounds(810,240,80,100);
+		panel.add(logodeck);
 		bonk();
 		donk();
 		ballong(ppdeck,p2deck);
