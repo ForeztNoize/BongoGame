@@ -1,30 +1,33 @@
 package bongo;
 
+import java.awt.Color;
+
 public class Cards {
 	private int value;
-	private String color;
+	private Color color;
 	private String CardTotalValue;
 	
 	public int getValue() {
 		return value;
 	}
 
-	public String getColor() {
+	public Color getColor() {
 		return color;
 	}
 	
 	public String CardTotalValue() {
 		return CardTotalValue;
 	}
+	
 
-	public Cards(int value, String color, String CardTotalValue) {
+	public Cards(int value, Color color, String CardTotalValue) {
 		this.color = color;
 		this.value = value;
 		this.CardTotalValue = CardTotalValue;
 		
 		
 		switch (value) {
-		case 0:
+		case 25:
 			this.CardTotalValue = "0";
 			break;
 		case 1, 2:
@@ -66,6 +69,7 @@ public class Cards {
 			default:
 				break;
 	}
+		
 	}
 }
 	

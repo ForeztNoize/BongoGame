@@ -1,12 +1,12 @@
 package bongo;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
 	
-	private String[] ColorArray = {"Red","Blue","Yellow","Green"};
-	//private String[] WildArray = {"FourWild","ColorWild"};
+	private Color[] ColorArray = {Color.RED,Color.BLUE,Color.YELLOW,Color.GREEN};
 	private ArrayList<Cards> deck = new ArrayList<Cards>();
 
 	public Deck() {
@@ -28,7 +28,7 @@ public class Deck {
 		return deck;
 	}
 
-	public String[] getColorArray() {
+	public Color[] getColorArray() {
 		return ColorArray;
 	}
 
