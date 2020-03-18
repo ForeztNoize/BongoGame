@@ -13,6 +13,10 @@ public class Hand {
 	private static ArrayList<Cards> Dongle = deck.getDeck();
 	private static ArrayList<Cards> ppdeck = new ArrayList<Cards>();
 	private static ArrayList<Cards> p2deck = new ArrayList<Cards>();
+	
+	public static ArrayList<Cards> getDongle() {
+		return Dongle;
+	}
 	public static ArrayList<Cards> getPpdeck() {
 		return ppdeck;
 	}
@@ -40,23 +44,15 @@ public class Hand {
 
 	}
  
-	public static void ballong(ArrayList<Cards> ppdeck, ArrayList<Cards> p2deck, JPanel panel) {
-		int y = 0;
-		int z = 0;
-		for (int i = 0; i < ppdeck.size(); i++) {
+	public Hand(ArrayList<Cards> ppdeck, JPanel panel,int x, int y, int i) {
 			String value = ppdeck.get(i).CardTotalValue();
-			JButton Values[] = new JButton[100];
-				Values[z]  = new JButton(value);
-				Values[z].setBounds(y, 40, 80, 100);
-				Color currentColor = ppdeck.get(i).getColor();
-				Values[z].setBackground(currentColor);
-				y += 90;
-				panel.add(Values[z]);
-				z++;
-		}
-		y = 0;
-		z = 0;
-		for (int i = 0; i < p2deck.size(); i++) {
+			JButton card = new JButton(value);
+			int id = i;
+			card.setBounds(x, y, 80, 100);
+			Color currentColor = ppdeck.get(i).getColor();
+			card.setBackground(currentColor);
+			panel.add(card);
+		/*
 			String value = p2deck.get(i).CardTotalValue();
 			JButton Values[] = new JButton[100];
 			Values[z]  = new JButton(value);
@@ -69,7 +65,7 @@ public class Hand {
 			public void actionPerformed(ActionEvent e) {
 				JButton card = new JButton();
 				Color activeColor = p2deck.get(1).getColor();
-				card = new JButton(p2deck.get(2).CardTotalValue());
+				card = new JButton(p2deck.get(1).CardTotalValue());
 				card.setBounds(315,240,80,100);
 				card.setBackground(activeColor);
 				panel.add(card);
@@ -78,7 +74,6 @@ public class Hand {
 			});
 			y += 90;
 			panel.add(Values[z]);
-			z++;
-		}
+			z++;*/
 	}
 }
