@@ -45,8 +45,12 @@ public class Main {
 		  by += 90;
 		}
 		
-		Hand.bonk();
-		Hand.donk();
+		for (int i = 0; i < 8; i++) { 
+			Hand.initial(Hand.getPpdeck());
+		}
+		for (int i = 0; i < 8; i++) { 
+			Hand.initial(Hand.getP2deck());
+		}
 		int x = 0;
 		int y = 0;
 		for (int i = 0; i < Hand.getP2deck().size(); i++) {
