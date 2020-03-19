@@ -58,7 +58,7 @@ public class RemainingCards {
 		ppdeck.add(currentCard);
 		String value = Hand.getDongle().get(0).CardTotalValue();
 		JButton newCard = new JButton(value);
-		newCard.setBounds(removedresult, 480, 80, 100);
+		newCard.setBounds(removedresult, 440, 80, 100);
 		Color currentColor = Hand.getDongle().get(0).getColor();
 		newCard.setBackground(currentColor);
 		Hand.getDongle().remove(0);
