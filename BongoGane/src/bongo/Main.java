@@ -25,8 +25,13 @@ public class Main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		lblNewLabel.setBounds(30, 9, 150, 14);
-		panel.add(lblNewLabel);	
+		panel.add(lblNewLabel);
+		JLabel playerlabel = new JLabel ("Your card");
+		playerlabel.setBounds(300, 240, 40, 40);
+		
 		Hand.handgeneration(panel);
+		
+		
 		
 
 	}

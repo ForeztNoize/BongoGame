@@ -67,9 +67,8 @@ public class Hand {
 					panel.remove(knapp.get(0));
 					knapp.set(0, middle);
 					panel.add(knapp.get(0));
-					RemainingCards.setRemoved(id);;
 					hnds[id].setVisible(false);
-					AIHand.ComputerTurn(panel, id);
+					AIHand.ComputerTurn(panel, id, Hand.getPpdeck().get(id));
 				}	
 				});
 	}

@@ -30,7 +30,7 @@ public class AIHand {
 		crds[id] = card;
 	}
 
-	public static void ComputerTurn(JPanel panel, int id) {
+	public static void ComputerTurn(JPanel panel, int id, Cards player) {
 		JButton computerChoice = new JButton();
 		kno.add(computerChoice);
 		computerChoice.setVisible(false);
@@ -43,6 +43,31 @@ public class AIHand {
 		kno.set(0, computerChoice);
 		crds[id].setVisible(false);
 		panel.add(kno.get(0));
+		Analyzer(player, activeColor);
+		Analyzer(getP2deck().get(id), player.getColor());
+	}
+	
+	public static void Analyzer(Cards subject, Color activeColor) {
+		if(subject.getColor() == Color.RED) {
+			Fire playerFire = new Fire();
+			playerFire.Action();
+			playerFire.Force(activeColor);
+		}
+		if(subject.getColor() == Color.GREEN) {
+			Grass playerGrass = new Grass();
+			playerGrass.Action();
+			playerGrass.Force(activeColor);
+		}
+		if(subject.getColor() == Color.BLUE) {
+			Water playerWater = new Water();
+			playerWater.Action();
+			playerWater.Force(activeColor);
+		}
+		if(subject.getColor() == Color.YELLOW) {
+			Poison playerPoison = new Poison();
+			playerPoison.Action();
+			playerPoison.Force(activeColor);
+		}
 	}
 }
 
