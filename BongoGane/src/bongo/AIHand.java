@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -14,12 +15,16 @@ public class AIHand {
 	private static int aicards = 10;
 	private static JButton[] crds = new JButton[aicards];
 	private static int Score = 0;
+	private static JLabel computerEvents = new JLabel();
+	private static JLabel playerEvents = new JLabel();
 	
 	public static ArrayList<Cards> getP2deck() {
 		return p2deck;
 	}
 	
 	public AIHand(JPanel panel,int x, int y, int i) {
+		panel.add(computerEvents);
+		panel.add(playerEvents);
 		JButton card = new JButton("Bongo");
 		int id = i;
 		card.setBounds(x, y, 80, 100);
@@ -30,6 +35,10 @@ public class AIHand {
 	}
 
 	public static void ComputerTurn(JPanel panel, int id, Cards player) {
+		computerEvents.setText("Ai Bonus: ");
+		playerEvents.setText("Your Bonus: ");
+		playerEvents.setBounds(620, 200, 440, 40);
+		computerEvents.setBounds(620, 300, 440, 40);
 		JButton computerChoice = new JButton();
 		kno.add(computerChoice);
 		computerChoice.setVisible(false);
@@ -44,7 +53,13 @@ public class AIHand {
 		panel.add(kno.get(0));
 		
 		int playerdamage = Analyzer(player, activeColor);
+		
+		playerEvents.setText("Your Bonus: " + Elements.getEvents());
+		
 		int computerdamage = Analyzer(getP2deck().get(id), player.getColor());
+		
+		computerEvents.setText("Ai Bonus: " + Elements.getEvents());
+		
 		int playernumber = Integer.parseInt(player.CardTotalValue());
 		int computernumber = Integer.parseInt(getP2deck().get(id).CardTotalValue());
 		int playerTotal = playerdamage + playernumber;

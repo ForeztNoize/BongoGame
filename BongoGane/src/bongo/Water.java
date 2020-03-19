@@ -9,9 +9,10 @@ public class Water extends Elements {
 
 	public int Force(Color enemy) {
 		if(enemy == Color.RED) {
-			System.out.println("Extra Splash (+1 damage)");
+			setEvents("Extra Splash (+1 damage)");
 			return 1;
 		}else {
+			setEvents("");
 			return 0;
 		}
 	}
