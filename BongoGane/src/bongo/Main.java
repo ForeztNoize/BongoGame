@@ -26,8 +26,14 @@ public class Main {
 		frame.setVisible(true);
 		lblNewLabel.setBounds(30, 9, 150, 14);
 		panel.add(lblNewLabel);
-		JLabel playerlabel = new JLabel ("Your card");
-		playerlabel.setBounds(300, 240, 40, 40);
+		
+		JLabel playerlabel = new JLabel ("Your card: ");
+		playerlabel.setBounds(320, 200, 140, 40);
+		panel.add(playerlabel);
+		
+		JLabel computerlabel = new JLabel ("Ai card: ");
+		computerlabel.setBounds(420, 200, 140, 40);
+		panel.add(computerlabel);
 		
 		Hand.handgeneration(panel);
 		
