@@ -40,5 +40,17 @@ public class Hand {
 			Color currentColor = ppdeck.get(i).getColor();
 			card.setBackground(currentColor);
 			panel.add(card);
+			card.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					JButton middle = new JButton();
+					Color activeColor = Hand.getPpdeck().get(id).getColor();
+					middle = new JButton(Hand.getPpdeck().get(id).CardTotalValue());
+					middle.setBounds(315,240,80,100);
+					middle.setBackground(activeColor);
+					panel.add(middle);
+					RemainingCards.setRemoved(id);
+				}	
+				});
 	}
 }

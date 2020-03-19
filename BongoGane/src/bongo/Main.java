@@ -13,6 +13,8 @@ public class Main {
 	public static JFrame frame = new JFrame("BongoGame");
 	public static JPanel panel = new JPanel();
 	public static JLabel lblNewLabel = new JLabel("");
+	public static int handcards = 8;
+	public static Hand[] hnds = new Hand[handcards];
 
 	public static void main(String[] args) {
 		
@@ -36,20 +38,13 @@ public class Main {
 		logodeck.setBounds(810,240,80,100);
 		panel.add(logodeck);
 		
-		int buttons = 8;
-		Identifiers[] btns = new Identifiers[buttons];
-		int by = 0;
-		for (int j = 0; j < btns.length; j++) {
-		  btns[j] = new Identifiers(by, j, panel);
-		  by += 90;
-		}
-		
 		for (int i = 0; i < 8; i++) { 
 			Hand.initial(Hand.getPpdeck());
 		}
 		for (int i = 0; i < 8; i++) { 
 			Hand.initial(Hand.getP2deck());
 		}
+		
 		int x = 0;
 		int y = 0;
 		for (int i = 0; i < Hand.getP2deck().size(); i++) {
@@ -58,9 +53,9 @@ public class Main {
 			x += 90;
 		}
 		int x2 = 0;
-		for (int i = 0; i < Hand.getPpdeck().size(); i++) {
+		for (int i = 0; i < hnds.length; i++) {
 			y = 440;
-			Hand Playerhands = new Hand(Hand.getPpdeck(), panel, x2, y, i);
+			hnds[i] = new Hand(Hand.getPpdeck(), panel, x2, y, i);
 			x2 += 90;
 		}
 	}
