@@ -27,9 +27,6 @@ public class Cards {
 		
 		
 		switch (value) {
-		case 25:
-			this.CardTotalValue = "0";
-			break;
 		case 1, 2:
 			this.CardTotalValue = "1";
 			break;
@@ -58,13 +55,7 @@ public class Cards {
 			this.CardTotalValue = "9";
 			break;
 		case 19, 20:
-			this.CardTotalValue = "+2";
-			break;
-		case 21, 22:
-			this.CardTotalValue = "Stop";
-			break;
-		case 23, 24:
-			this.CardTotalValue = "Switch";
+			this.CardTotalValue = "10";
 			break;
 			default:
 				break;

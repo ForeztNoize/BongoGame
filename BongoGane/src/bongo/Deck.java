@@ -13,7 +13,7 @@ public class Deck {
 		int i = 0;
 		int j = 0;
 		
-		for (int q = 0; q < 25; q++) {
+		for (int q = 0; q < 20; q++) {
 			i++;
 			j = 0;
 			for(int w = 0; w < 4; w++) {
