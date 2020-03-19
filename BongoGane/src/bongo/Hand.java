@@ -56,25 +56,19 @@ public class Hand {
 			card.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					JButton middle = hnds[id];
-					middle.setBounds(315,240,80,100);
+					JButton middle = new JButton();
 					knapp.add(middle);
-					knapp.set(0, middle);
-					panel.add(knapp.get(0));
-					panel.add(middle);
-					RemainingCards.setRemoved(id);
-					panel.remove(hnds[id]);
-					hnds[id].setVisible(false);
-					middle.setVisible(true);
-					ppdeck.remove(id);
-					/*
 					middle.setVisible(false);
-					Color activeColor = ppdeck.get(id).getColor();
-					middle = new JButton(ppdeck.get(id).CardTotalValue());
+					Color activeColor = Hand.getPpdeck().get(id).getColor();
+					middle = new JButton(Hand.getPpdeck().get(id).CardTotalValue());
 					middle.setBounds(315,240,80,100);
 					middle.setBackground(activeColor);
-					panel.remove(knapp.get(0));*/
-					
+					panel.add(middle);
+					panel.remove(knapp.get(0));
+					knapp.set(0, middle);
+					panel.add(knapp.get(0));
+					RemainingCards.setRemoved(id);;
+					hnds[id].setVisible(false);
 				}	
 				});
 	}

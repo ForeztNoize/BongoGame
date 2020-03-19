@@ -26,15 +26,6 @@ public class Main {
 		frame.setVisible(true);
 		lblNewLabel.setBounds(30, 9, 150, 14);
 		panel.add(lblNewLabel);	
-		JButton logodeck = new JButton("Bongo");
-		logodeck.addActionListener(new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			RemainingCards.pull(Hand.getPpdeck(), panel);
-		}	
-		});
-		logodeck.setBounds(810,240,80,100);
-		panel.add(logodeck);
 		Hand.handgeneration(panel);
 		
 
