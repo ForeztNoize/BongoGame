@@ -15,7 +15,7 @@ public class Deck {
 		int j = 0;
 		
 		//Double iteration to make sure there are equal amount of everything to begin with.
-		for (int q = 0; q < 20; q++) {
+		for (int q = 0; q < 10; q++) {
 			i++;
 			j = 0;
 			//The first loop handles values and the second handles colours.

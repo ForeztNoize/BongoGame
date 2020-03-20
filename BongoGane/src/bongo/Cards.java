@@ -27,34 +27,34 @@ public class Cards {
 		
 		//The cards get their values in string format to make sure there are no problems displaying them on the buttons.
 		switch (value) {
-		case 1, 2:
+		case 1:
 			this.CardTotalValue = "1";
 			break;
-		case 3, 4:
+		case 2:
 			this.CardTotalValue = "2";
 			break;
-		case 5, 6:
+		case 3:
 			this.CardTotalValue = "3";
 			break;
-		case 7, 8:
+		case 4:
 			this.CardTotalValue = "4";
 			break;
-		case 9, 10:
+		case 5:
 			this.CardTotalValue = "5";
 			break;
-		case 11, 12:
+		case 6:
 			this.CardTotalValue = "6";
 			break;
-		case 13, 14:
+		case 7:
 			this.CardTotalValue = "7";
 			break;
-		case 15, 16:
+		case 8:
 			this.CardTotalValue = "8";
 			break;
-		case 17, 18:
+		case 9:
 			this.CardTotalValue = "9";
 			break;
-		case 19, 20:
+		case 10:
 			this.CardTotalValue = "10";
 			break;
 			default:
