@@ -44,6 +44,7 @@ public class Hand {
 		//The cards should be pressable and still display som sats hence why they are made as buttons
 		JButton card = new JButton(value);
 		int id = i;
+		//Visualization of the card with color and number.
 		Color currentColor = originDeck.get(0).getColor();
 		card.setBackground(currentColor);
 		ppdeck.add(originDeck.get(0));
@@ -59,6 +60,7 @@ public class Hand {
 				pushCard.add(middle);
 				//If there was a card in the middle already it gets hidden to make place for the new one.
 				middle.setVisible(false);
+				//Visualization of the card with color and number.
 				Color activeColor = Hand.getPpdeck().get(id).getColor();
 				middle = new JButton(Hand.getPpdeck().get(id).CardTotalValue());
 				middle.setBackground(activeColor);

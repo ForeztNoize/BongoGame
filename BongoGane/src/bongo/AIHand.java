@@ -11,10 +11,11 @@ import javax.swing.JPanel;
 public class AIHand {
 	
 	private static ArrayList<Cards> p2deck = new ArrayList<Cards>();
-	private static ArrayList<JButton> kno = new ArrayList<JButton>();
+	private static ArrayList<JButton> compActive = new ArrayList<JButton>();
 	private static int aicards = 10;
 	private static JButton[] crds = new JButton[aicards];
 	private static int Score = 0;
+	//Labels for writing out what happens in a round.
 	private static JLabel playerEvent = new JLabel("Your card & bonus: ");
 	private static JLabel computerEvent = new JLabel("Ai card & bonus: ");
 	private static JLabel filler = new JLabel("");
@@ -36,18 +37,21 @@ public class AIHand {
 		panel.add(filler);
 	}
 
+	//Method for bringing forward the computers card and comparing the two battle cards.
 	public static void ComputerTurn(JPanel panel, int id, Cards player) {
+		//To show the card the player is up against a new button is created.
 		JButton computerChoice = new JButton();
-		kno.add(computerChoice);
+		compActive.add(computerChoice);
 		computerChoice.setVisible(false);
+		//Visualization of the card with color and number.
 		Color activeColor = getP2deck().get(id).getColor();
 		computerChoice = new JButton(getP2deck().get(id).CardTotalValue());
 		computerChoice.setBackground(activeColor);
 		panel.add(computerChoice);
-		panel.remove(kno.get(0));
-		kno.set(0, computerChoice);
+		panel.remove(compActive.get(0));
+		compActive.set(0, computerChoice);
 		crds[id].setVisible(false);
-		panel.add(kno.get(0));
+		panel.add(compActive.get(0));
 		
 		int playerdamage = Analyzer(player, activeColor);
 		playerEvent.setText("Your card & bonus: " + Elements.getElementEvent());
