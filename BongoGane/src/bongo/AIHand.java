@@ -53,24 +53,33 @@ public class AIHand {
 		crds[id].setVisible(false);
 		panel.add(compActive.get(0));
 		
-		//
+		//Runs analyzer one time for the player card
 		int playerdamage = Analyzer(player, activeColor);
 		playerEvent.setText("Your card & bonus: " + Elements.getElementEvent());
 		
+		//Now that playerdamage is already assigned, analyzer can now be run for the computer.
 		int computerdamage = Analyzer(getP2deck().get(id), player.getColor());
 		computerEvent.setText("Ai card & bonus: " + Elements.getElementEvent());
 		
+		//To turn the string numbers into a value for calculation they need to get parsed.
 		int playernumber = Integer.parseInt(player.CardTotalValue());
 		int computernumber = Integer.parseInt(getP2deck().get(id).CardTotalValue());
+		
+		//The total for both the player and computer is calculated.
 		int playerTotal = playerdamage + playernumber;
 		int computerTotal = computerdamage + computernumber;
+		
+		//Game is ran to compare the total damages.
 		Game(playerTotal, computerTotal);
 	}
 	
+	//Method to check the elemental of the card and compare it to the opponents.
 	public static int Analyzer(Cards subject, Color activeColor) {
+		//The standard is always 1
 		int damage = 1;
 		if(subject.getColor() == Color.RED) {
 			Fire playerFire = new Fire();
+			//If the card had a bonus it will add it to the damage by the method Force which returns an integer.
 			damage = playerFire.Force(activeColor);
 		}
 		if(subject.getColor() == Color.GREEN) {
@@ -88,7 +97,9 @@ public class AIHand {
 		return damage;
 	}
 	
+	//Method to compare the two battle cards and keep track of how the turns are going.
 	public static void Game(int player, int computer){
+		//Depending on who won a different message will show.
 		if(player > computer) {
 			Score++;
 			JOptionPane.showMessageDialog(null, "You Win\n Current Score: " + Score);

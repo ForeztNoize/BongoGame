@@ -9,6 +9,7 @@ public class Deck {
 	private Color[] ColorArray = {Color.RED,Color.BLUE,Color.YELLOW,Color.GREEN};
 	private ArrayList<Cards> deck = new ArrayList<Cards>();
 
+	//Constructor for the deck that the cards are initially put into
 	public Deck() {
 		int i = 0;
 		int j = 0;

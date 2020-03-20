@@ -2,6 +2,7 @@ package bongo;
 
 import java.awt.Color;
 
+//Superclass for handling the other elements
 public abstract class Elements {
 	
 	private static String ElementEvent = "";
