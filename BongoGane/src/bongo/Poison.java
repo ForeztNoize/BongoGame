@@ -3,9 +3,6 @@ package bongo;
 import java.awt.Color;
 
 public class Poison extends Elements {
-	public void Action() {
-		System.out.println("Infect");
-	}
 
 	public int Force(Color enemy) {
 		if(enemy == Color.BLUE) {

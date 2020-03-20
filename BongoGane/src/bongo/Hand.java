@@ -27,26 +27,19 @@ public class Hand {
 
 	public static void handgeneration(JPanel panel) {
 		
-		int x = 0;
-		int y = 0;
 		for (int i = 0; i < 10; i++) {
-			y = 40;
-			AIHand AIhands = new AIHand(panel, x, y, i);
-			x += 90;
+			Hand Playerhands = new Hand(Hand.getPpdeck(), panel, i);
 		}
-		int x2 = 0;
 		for (int i = 0; i < 10; i++) {
-			y = 440;
-			Hand Playerhands = new Hand(Hand.getPpdeck(), panel, x2, y, i);
-			x2 += 90;
+			AIHand AIhands = new AIHand(panel, i);
 		}
+
 	}
  
-	public Hand(ArrayList<Cards> ppdeck, JPanel panel,int x, int y, int i) {
+	public Hand(ArrayList<Cards> ppdeck, JPanel panel, int i) {
 			String value = Dongle.get(0).CardTotalValue();
 			JButton card = new JButton(value);
 			int id = i;
-			card.setBounds(x, y, 80, 100);
 			Color currentColor = Dongle.get(0).getColor();
 			card.setBackground(currentColor);
 			ppdeck.add(Dongle.get(0));
@@ -61,7 +54,6 @@ public class Hand {
 					middle.setVisible(false);
 					Color activeColor = Hand.getPpdeck().get(id).getColor();
 					middle = new JButton(Hand.getPpdeck().get(id).CardTotalValue());
-					middle.setBounds(315,240,80,100);
 					middle.setBackground(activeColor);
 					panel.add(middle);
 					panel.remove(knapp.get(0));

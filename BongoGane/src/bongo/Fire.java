@@ -3,9 +3,6 @@ package bongo;
 import java.awt.Color;
 
 public class Fire extends Elements {
-	public void Action() {
-		System.out.println("Burn");
-	}
 
 	public int Force(Color enemy) {
 		if(enemy == Color.GREEN) {

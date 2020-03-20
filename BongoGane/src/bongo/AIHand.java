@@ -19,10 +19,9 @@ public class AIHand {
 		return p2deck;
 	}
 	
-	public AIHand(JPanel panel,int x, int y, int i) {
+	public AIHand(JPanel panel,int i) {
 		JButton card = new JButton("Bongo");
 		int id = i;
-		card.setBounds(x, y, 80, 100);
 		p2deck.add(Hand.getDongle().get(0));
 		Hand.getDongle().remove(0);
 		panel.add(card);
@@ -35,7 +34,6 @@ public class AIHand {
 		computerChoice.setVisible(false);
 		Color activeColor = getP2deck().get(id).getColor();
 		computerChoice = new JButton(getP2deck().get(id).CardTotalValue());
-		computerChoice.setBounds(415,240,80,100);
 		computerChoice.setBackground(activeColor);
 		panel.add(computerChoice);
 		panel.remove(kno.get(0));
@@ -44,7 +42,9 @@ public class AIHand {
 		panel.add(kno.get(0));
 		
 		int playerdamage = Analyzer(player, activeColor);
+		
 		int computerdamage = Analyzer(getP2deck().get(id), player.getColor());
+		
 		int playernumber = Integer.parseInt(player.CardTotalValue());
 		int computernumber = Integer.parseInt(getP2deck().get(id).CardTotalValue());
 		int playerTotal = playerdamage + playernumber;
@@ -56,12 +56,10 @@ public class AIHand {
 		int damage = 1;
 		if(subject.getColor() == Color.RED) {
 			Fire playerFire = new Fire();
-			playerFire.Action();
 			damage = playerFire.Force(activeColor);
 		}
 		if(subject.getColor() == Color.GREEN) {
 			Grass playerGrass = new Grass();
-			playerGrass.Action();
 			damage = playerGrass.Force(activeColor);
 		}
 		if(subject.getColor() == Color.BLUE) {
@@ -71,7 +69,6 @@ public class AIHand {
 		}
 		if(subject.getColor() == Color.YELLOW) {
 			Poison playerPoison = new Poison();
-			playerPoison.Action();
 			damage = playerPoison.Force(activeColor);
 		}
 		return damage;
