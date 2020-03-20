@@ -9,10 +9,9 @@ public class Poison extends Elements {
 
 	public int Force(Color enemy) {
 		if(enemy == Color.BLUE) {
-			setEvents("Extra Infect (+1 damage)");
+			System.out.println("Extra Infect (+1 damage)");
 			return 1;
 		}else {
-			setEvents("");
 			return 0;
 		}
 	}

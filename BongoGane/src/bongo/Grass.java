@@ -9,10 +9,9 @@ public class Grass extends Elements {
 
 	public int Force(Color enemy) {
 		if(enemy == Color.YELLOW) {
-			setEvents("Extra Grow (+1 damage)");
+			System.out.println("Extra Grow (+1 damage)");
 			return 1;
 		}else {
-			setEvents("");
 			return 0;
 		}
 	}
