@@ -2,10 +2,19 @@ package bongo;
 
 import java.awt.Color;
 
-public class Elements {
-	public int Force(Color enemy) {
-		return 0;
+public abstract class Elements {
+	
+	private String ElementEvent;
+	
+	public String getElementEvent() {
+		return ElementEvent;
 	}
+
+	public void setElementEvent(String elementEvent) {
+		ElementEvent = elementEvent;
+	}
+
+	public abstract int Force(Color enemy);
 }
 
 
