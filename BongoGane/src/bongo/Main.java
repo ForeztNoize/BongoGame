@@ -17,12 +17,12 @@ public class Main {
 	
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		//Initial message to explain the game and its rules.
 		JOptionPane.showMessageDialog(null, "To play the game press on the coloured cards\nTo win your damage and any elemental extra damage has to be higher than the computer\nPlay until all cards are used");
+		//Method to create the hands and run the game.
 		Hand.handgeneration(panel);
+		//Makes the frame visible, after everything has been added to it. 
 		frame.setVisible(true);
-		
-		
-		
 
 	}
 	

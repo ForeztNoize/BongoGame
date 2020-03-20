@@ -23,11 +23,12 @@ public class AIHand {
 		return p2deck;
 	}
 	
+	//Constructor for the computers cards. Since the cards are hidden the visual design of them is much simpler.
 	public AIHand(JPanel panel,int i) {
 		JButton card = new JButton("Bongo");
 		int id = i;
-		p2deck.add(Hand.getDongle().get(0));
-		Hand.getDongle().remove(0);
+		p2deck.add(Hand.getOriginDeck().get(0));
+		Hand.getOriginDeck().remove(0);
 		panel.add(card);
 		crds[id] = card;
 		panel.add(playerEvent);
