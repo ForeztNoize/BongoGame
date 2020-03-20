@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Hand {
@@ -17,6 +18,7 @@ public class Hand {
 	private static int handcards = 10;
 	private static JButton[] hnds = new JButton[handcards];
 	private static ArrayList<JButton> knapp = new ArrayList<JButton>();
+	private static int turn = 0;
 	
 	public static ArrayList<Cards> getDongle() {
 		return Dongle;
@@ -61,6 +63,11 @@ public class Hand {
 					panel.add(knapp.get(0));
 					hnds[id].setVisible(false);
 					AIHand.ComputerTurn(panel, id, Hand.getPpdeck().get(id));
+					turn++;
+					if(turn == 9) {
+						JOptionPane.showMessageDialog(null, "Game Over");
+						System.exit(0);
+					}
 				}	
 				});
 	}
