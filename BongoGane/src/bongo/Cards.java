@@ -19,13 +19,13 @@ public class Cards {
 		return CardTotalValue;
 	}
 	
-
+	//Constructor for the cards.
 	public Cards(int value, Color color, String CardTotalValue) {
 		this.color = color;
 		this.value = value;
 		this.CardTotalValue = CardTotalValue;
 		
-		
+		//The cards get their values in string format to make sure there are no problems displaying them on the buttons.
 		switch (value) {
 		case 1, 2:
 			this.CardTotalValue = "1";
