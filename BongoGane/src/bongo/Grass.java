@@ -9,6 +9,7 @@ public class Grass extends Elements {
 			setElementEvent("Extra Grow (+1 damage)");
 			return 1;
 		}else {
+			setElementEvent("");
 			return 0;
 		}
 	}

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -14,6 +15,9 @@ public class AIHand {
 	private static int aicards = 10;
 	private static JButton[] crds = new JButton[aicards];
 	private static int Score = 0;
+	private static JLabel playerEvent = new JLabel("Your card & bonus: ");
+	private static JLabel computerEvent = new JLabel("Ai card & bonus: ");
+	private static JLabel filler = new JLabel("");
 	
 	public static ArrayList<Cards> getP2deck() {
 		return p2deck;
@@ -26,6 +30,9 @@ public class AIHand {
 		Hand.getDongle().remove(0);
 		panel.add(card);
 		crds[id] = card;
+		panel.add(playerEvent);
+		panel.add(computerEvent);
+		panel.add(filler);
 	}
 
 	public static void ComputerTurn(JPanel panel, int id, Cards player) {
@@ -42,8 +49,10 @@ public class AIHand {
 		panel.add(kno.get(0));
 		
 		int playerdamage = Analyzer(player, activeColor);
+		playerEvent.setText("Your card & bonus: " + Elements.getElementEvent());
 		
 		int computerdamage = Analyzer(getP2deck().get(id), player.getColor());
+		computerEvent.setText("Ai card & bonus: " + Elements.getElementEvent());
 		
 		int playernumber = Integer.parseInt(player.CardTotalValue());
 		int computernumber = Integer.parseInt(getP2deck().get(id).CardTotalValue());
@@ -64,7 +73,6 @@ public class AIHand {
 		}
 		if(subject.getColor() == Color.BLUE) {
 			Water playerWater = new Water();
-			playerWater.Action();
 			damage = playerWater.Force(activeColor);
 		}
 		if(subject.getColor() == Color.YELLOW) {

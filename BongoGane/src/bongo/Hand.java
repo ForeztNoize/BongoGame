@@ -27,10 +27,10 @@ public class Hand {
 
 	public static void handgeneration(JPanel panel) {
 		
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 9; i++) {
 			Hand Playerhands = new Hand(Hand.getPpdeck(), panel, i);
 		}
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 9; i++) {
 			AIHand AIhands = new AIHand(panel, i);
 		}
 

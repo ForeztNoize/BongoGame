@@ -4,14 +4,14 @@ import java.awt.Color;
 
 public abstract class Elements {
 	
-	private String ElementEvent;
+	private static String ElementEvent = "";
 	
-	public String getElementEvent() {
+	public static String getElementEvent() {
 		return ElementEvent;
 	}
 
 	public void setElementEvent(String elementEvent) {
-		ElementEvent = elementEvent;
+		Elements.ElementEvent = elementEvent;
 	}
 
 	public abstract int Force(Color enemy);

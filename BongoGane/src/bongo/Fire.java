@@ -9,6 +9,7 @@ public class Fire extends Elements {
 			setElementEvent("Extra Burn (+1 damage)");
 			return 1;
 		}else {
+			setElementEvent("");
 			return 0;
 		}
 	}

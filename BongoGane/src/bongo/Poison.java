@@ -9,6 +9,7 @@ public class Poison extends Elements {
 			setElementEvent("Extra Infect (+1 damage)");
 			return 1;
 		}else {
+			setElementEvent("");
 			return 0;
 		}
 	}
