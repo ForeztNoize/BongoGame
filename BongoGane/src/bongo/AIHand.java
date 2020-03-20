@@ -53,6 +53,7 @@ public class AIHand {
 		crds[id].setVisible(false);
 		panel.add(compActive.get(0));
 		
+		//
 		int playerdamage = Analyzer(player, activeColor);
 		playerEvent.setText("Your card & bonus: " + Elements.getElementEvent());
 		
