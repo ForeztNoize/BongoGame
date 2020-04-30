@@ -1,6 +1,8 @@
 package bongo;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -8,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class AIHand {
+public class Game {
 	
 	private static ArrayList<Card> p2deck = new ArrayList<Card>();
 	private static ArrayList<JButton> compActive = new ArrayList<JButton>();
@@ -20,17 +22,79 @@ public class AIHand {
 	private static JLabel computerEvent = new JLabel("Ai card & bonus: ");
 	private static JLabel filler = new JLabel("");
 	
+	private static Deck deck = new Deck();
+	private static ArrayList<Card> originDeck = deck.getDeck();
+	private static ArrayList<Card> ppdeck = new ArrayList<Card>();
+	private static int handcards = 10;
+	private static JButton[] hnds = new JButton[handcards];
+	private static ArrayList<JButton> pushCard = new ArrayList<JButton>();
+	private static int turn = 0;
+	
 	public static ArrayList<Card> getP2deck() {
 		return p2deck;
 	}
 	
+	public static ArrayList<Card> getOriginDeck() {
+		return originDeck;
+	}
+	public static ArrayList<Card> getPpdeck() {
+		return ppdeck;
+	}
+ 
+	//Method for creation of the players hand.
+	public static void Hand(ArrayList<Card> ppdeck, JPanel panel) {
+		//Iterates 9 times for 9 cards.
+		for (int i = 0; i < 9; i++) {
+			String value = originDeck.get(0).CardTotalValue();
+			//The cards should be pressable and still display som sats hence why they are made as buttons
+			JButton card = new JButton(value);
+			int id = i;
+			//Visualization of the card with color and number.
+			Color currentColor = originDeck.get(0).getColor();
+			card.setBackground(currentColor);
+			ppdeck.add(originDeck.get(0));
+			originDeck.remove(0);
+			panel.add(card);
+			hnds[id] = card;
+			//ActionListener for when a card i pressed.
+			card.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					//A new button that is suppose to represent the card pressed is made.
+					JButton middle = new JButton();
+					pushCard.add(middle);
+					//If there was a card in the middle already it gets hidden to make place for the new one.
+					middle.setVisible(false);
+					//Visualization of the card with color and number.
+					Color activeColor = getPpdeck().get(id).getColor();
+					middle = new JButton(getPpdeck().get(id).CardTotalValue());
+					middle.setBackground(activeColor);
+					panel.add(middle);
+					panel.remove(pushCard.get(0));
+					pushCard.set(0, middle);
+					panel.add(pushCard.get(0));
+					//The card is hidden from where it was before creating the illusion that it was moved.
+					hnds[id].setVisible(false);
+					Game.ComputerTurn(panel, id, getPpdeck().get(id));
+					//Make the turn number go up.
+					turn++;
+					//If-statement to end the game if all cards have been played.
+					if(turn == 9) {
+						JOptionPane.showMessageDialog(null, "Game Over");
+						System.exit(0);
+					}
+				}	
+			});
+		}
+	}
+	
 	//Constructor for the computers cards. Since the cards are hidden the visual design of them is much simpler.
-	public AIHand(JPanel panel) {
+	public static void AIHand(JPanel panel) {
 		for(int i = 0; i < 9; i++) {
 			JButton card = new JButton("Bongo");
 			int id = i;
-			p2deck.add(Hand.getOriginDeck().get(0));
-			Hand.getOriginDeck().remove(0);
+			p2deck.add(getOriginDeck().get(0));
+			getOriginDeck().remove(0);
 			panel.add(card);
 			crds[id] = card;
 			panel.add(playerEvent);
@@ -72,7 +136,7 @@ public class AIHand {
 		int computerTotal = computerdamage + computernumber;
 		
 		//Game is ran to compare the total damages.
-		Game(playerTotal, computerTotal);
+		GameResult(playerTotal, computerTotal);
 	}
 	
 	//Method to check the elemental of the card and compare it to the opponents.
@@ -100,7 +164,7 @@ public class AIHand {
 	}
 	
 	//Method to compare the two battle cards and keep track of how the turns are going.
-	public static void Game(int player, int computer){
+	public static void GameResult(int player, int computer){
 		//Depending on who won a different message will show.
 		if(player > computer) {
 			Score++;
