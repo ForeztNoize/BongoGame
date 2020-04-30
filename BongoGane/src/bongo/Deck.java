@@ -7,7 +7,7 @@ import java.util.Collections;
 public class Deck {
 	
 	private Color[] ColorArray = {Color.RED,Color.BLUE,Color.YELLOW,Color.GREEN};
-	private ArrayList<Cards> deck = new ArrayList<Cards>();
+	private ArrayList<Card> deck = new ArrayList<Card>();
 
 	//Constructor for the deck that the cards are initially put into
 	public Deck() {
@@ -20,7 +20,7 @@ public class Deck {
 			j = 0;
 			//The first loop handles values and the second handles colours.
 			for(int w = 0; w < 4; w++) {
-				deck.add(new Cards(i,ColorArray[j],""));
+				deck.add(new Card(i,ColorArray[j],""));
 				j++;
 			}
 		}
@@ -28,7 +28,7 @@ public class Deck {
 		Collections.shuffle(deck);
 	}
 	
-	public ArrayList<Cards> getDeck() {
+	public ArrayList<Card> getDeck() {
 		return deck;
 	}
 

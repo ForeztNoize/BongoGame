@@ -2,7 +2,7 @@ package bongo;
 
 import java.awt.Color;
 
-public class Cards {
+public class Card {
 	private int value;
 	private Color color;
 	private String CardTotalValue;
@@ -20,7 +20,7 @@ public class Cards {
 	}
 	
 	//Constructor for the cards.
-	public Cards(int value, Color color, String CardTotalValue) {
+	public Card(int value, Color color, String CardTotalValue) {
 		this.color = color;
 		this.value = value;
 		this.CardTotalValue = CardTotalValue;

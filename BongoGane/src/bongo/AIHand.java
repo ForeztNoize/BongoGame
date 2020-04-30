@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 public class AIHand {
 	
-	private static ArrayList<Cards> p2deck = new ArrayList<Cards>();
+	private static ArrayList<Card> p2deck = new ArrayList<Card>();
 	private static ArrayList<JButton> compActive = new ArrayList<JButton>();
 	private static int aicards = 10;
 	private static JButton[] crds = new JButton[aicards];
@@ -20,25 +20,27 @@ public class AIHand {
 	private static JLabel computerEvent = new JLabel("Ai card & bonus: ");
 	private static JLabel filler = new JLabel("");
 	
-	public static ArrayList<Cards> getP2deck() {
+	public static ArrayList<Card> getP2deck() {
 		return p2deck;
 	}
 	
 	//Constructor for the computers cards. Since the cards are hidden the visual design of them is much simpler.
-	public AIHand(JPanel panel,int i) {
-		JButton card = new JButton("Bongo");
-		int id = i;
-		p2deck.add(Hand.getOriginDeck().get(0));
-		Hand.getOriginDeck().remove(0);
-		panel.add(card);
-		crds[id] = card;
-		panel.add(playerEvent);
-		panel.add(computerEvent);
-		panel.add(filler);
+	public AIHand(JPanel panel) {
+		for(int i = 0; i < 9; i++) {
+			JButton card = new JButton("Bongo");
+			int id = i;
+			p2deck.add(Hand.getOriginDeck().get(0));
+			Hand.getOriginDeck().remove(0);
+			panel.add(card);
+			crds[id] = card;
+			panel.add(playerEvent);
+			panel.add(computerEvent);
+			panel.add(filler);
+		}
 	}
 
 	//Method for bringing forward the computers card and comparing the two battle cards.
-	public static void ComputerTurn(JPanel panel, int id, Cards player) {
+	public static void ComputerTurn(JPanel panel, int id, Card player) {
 		//To show the card the player is up against a new button is created.
 		JButton computerChoice = new JButton();
 		compActive.add(computerChoice);
@@ -74,7 +76,7 @@ public class AIHand {
 	}
 	
 	//Method to check the elemental of the card and compare it to the opponents.
-	public static int Analyzer(Cards subject, Color activeColor) {
+	public static int Analyzer(Card subject, Color activeColor) {
 		//The standard is always 1
 		int damage = 1;
 		if(subject.getColor() == Color.RED) {
