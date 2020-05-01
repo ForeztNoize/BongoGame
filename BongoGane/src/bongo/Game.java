@@ -88,7 +88,7 @@ public class Game {
 		}
 	}
 	
-	//Constructor for the computers cards. Since the cards are hidden the visual design of them is much simpler.
+	//Method for the computers cards. Since the cards are hidden the visual design of them is much simpler.
 	public static void AIHand(JPanel panel) {
 		for(int i = 0; i < 9; i++) {
 			JButton card = new JButton("Bongo");
@@ -97,6 +97,7 @@ public class Game {
 			getOriginDeck().remove(0);
 			panel.add(card);
 			crds[id] = card;
+			//The Labels for the information during the round are added last so that they appear at the bottom.
 			panel.add(playerEvent);
 			panel.add(computerEvent);
 			panel.add(filler);
