@@ -25,8 +25,7 @@ public class Main {
 		//Makes the frame visible, after everything has been added to it. 
 		frame.setVisible(true);
 
-	}
-	
+	}	
 }
 
 

@@ -35,7 +35,6 @@ public class Deck {
 	public Color[] getColorArray() {
 		return ColorArray;
 	}
-
 }
 
 
